@@ -2,15 +2,22 @@ package logica;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
+
+@Entity
 public class Paciente extends Persona {
 	
-	private int id_paciente;
+//	private int id_paciente;
 	private Boolean tiene_OS;
 	private String tipoSangre;
+	@OneToOne
 	private Responsable responsable;
 	
 	// Relacion de 1 a N 
+	@OneToMany(mappedBy="pacien")
 	private List <Turno> listaTurnos;
 	
 	
@@ -18,10 +25,10 @@ public class Paciente extends Persona {
 		
 	}
 	
-	public Paciente(String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac,
-			int id_paciente, Boolean tiene_OS, String tipoSangre, Responsable responsable, List<Turno> listaTurnos) {
+	
+ Paciente(String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac,
+			Boolean tiene_OS, String tipoSangre, Responsable responsable, List<Turno> listaTurnos) {
 		super(dni, nombre, apellido, telefono, direccion, fecha_nac);
-		this.id_paciente = id_paciente;
 		this.tiene_OS = tiene_OS;
 		this.tipoSangre = tipoSangre;
 		this.responsable = responsable;
@@ -30,14 +37,14 @@ public class Paciente extends Persona {
 
 
 	// Geters y Setter propios.
-	public int getId_paciente() {
-		return id_paciente;
-	}
-
-
-	public void setId_paciente(int id_paciente) {
-		this.id_paciente = id_paciente;
-	}
+//	public int getId_paciente() {
+//		return id_paciente;
+//	}
+//
+//
+//	public void setId_paciente(int id_paciente) {
+//		this.id_paciente = id_paciente;
+//	}
 
 
 	public Boolean getTiene_OS() {

@@ -2,12 +2,36 @@ package logica;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Turno {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_turno;
+	@Temporal(TemporalType.DATE)
 	private Date fecha_turno;
-	private  String hora_turno;
+	private String hora_turno;
 	private String afeccion;
+	
+	/* Esta relacionado con el mapeo de la clase odontologo, relacion 1-N segun el nombre del objeto Odontologo
+	 El name es la FK en la BDD*/
+	@ManyToOne
+	@JoinColumn(name="fk_odontologo")
+	private Odontologo odonto;
+	
+	/* Esta relacionado con el mapeo de la clase paciente relacion 1-N */
+	@ManyToOne
+	@JoinColumn(name="fk_paciente")
+	private Paciente pacien;
 	
 	
 	// Constructores
