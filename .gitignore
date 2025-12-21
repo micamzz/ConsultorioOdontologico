@@ -1,1 +1,13 @@
-/target/
+# Archivos compilados (Java)
+*.class
+bin/
+target/
+
+# Configuración de Eclipse 
+.settings/
+.project
+.classpath
+
+# Archivos temporales y Logs
+*.log
+.DS_Store
