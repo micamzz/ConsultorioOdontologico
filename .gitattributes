@@ -1,0 +1,3 @@
+src/main/webapp/vendor/** linguist-vendored
+src/main/webapp/css/** linguist-vendored
+src/main/webapp/scss/** linguist-vendored
