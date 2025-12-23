@@ -1,5 +1,8 @@
 package persistencia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import logica.Usuario;
 
 public class ControladoraPersistencia {
@@ -22,6 +25,29 @@ public class ControladoraPersistencia {
 	// Usuario - Método para que se cree en la base de datos
 	public void crearUsuario(Usuario usu) {
 		usuJpa.create(usu);	
+	}
+
+	public List<Usuario> getUsuarios() {
+		
+		return usuJpa.findUsuarioEntities();
+	}
+
+	
+	public void borrarUsuario(int id) {
+		usuJpa.destroy(id);	
+	}
+
+	public Usuario traerUsuario(int id) {
+		return usuJpa.findUsuario(id);
+	}
+
+	public void editarUsuario(Usuario usu) {
+		try {
+			usuJpa.edit(usu);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

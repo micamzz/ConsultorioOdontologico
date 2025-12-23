@@ -15,7 +15,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-regular fa-tooth"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Consultorio Odontológico</div>
+                <div class="sidebar-brand-text mx-3">Alvarenga Gonzalez</div>
             </a>
 
             <!-- Divider -->
@@ -81,7 +81,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Acciones:</h6>
-                        <a class="collapse-item" href="SvUsuarios">Ver Usuarios</a>
+                        <a class="collapse-item" href="SvUsuarios">Ver Usuarios</a>    <!-- llama al servlet -->
                         <a class="collapse-item" href="altaUsuarios.jsp">Alta Usuarios</a>
                        
                     </div>
@@ -129,20 +129,20 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    Perfil
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    Configuración
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Actividad
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Cerrar sesión
                                 </a>
                             </div>
                         </li>

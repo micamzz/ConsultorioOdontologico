@@ -1,5 +1,8 @@
 package logica;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import persistencia.ControladoraPersistencia;
 
 public class Controladora {
@@ -11,9 +14,8 @@ public class Controladora {
 	public Controladora() {
 		
 	}
+	
 	// Metodos Usuarios
-	
-	
 	
 	public void crearUsuario( String nombreUsuario, String contrasenia, String rol) {
 		
@@ -24,5 +26,32 @@ public class Controladora {
 		controlPersis.crearUsuario(usu);
 		
 	}
+
+
+
+	public List<Usuario> getUsuarios() {
 	
+		return controlPersis.getUsuarios();
+	}
+
+	public Usuario traerUsuario(int id) {
+	    return controlPersis.traerUsuario(id);
+	}
+
+	public void borrarUsuario(int id) {
+	    try {
+
+	        Usuario usu = controlPersis.traerUsuario(id); 
+	        if (usu != null) {
+	            controlPersis.borrarUsuario(id);
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Error al borrar: " + e.getMessage());
+	    }
+	}
+
+	public void editarUsuario(Usuario usu) {
+		controlPersis.editarUsuario(usu);
+		
+	}
 }
