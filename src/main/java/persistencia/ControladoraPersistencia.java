@@ -60,5 +60,24 @@ public class ControladoraPersistencia {
 	public List<Odontologo> getOdontologos() {
 		return odontoJpa.findOdontologoEntities();
 	}
+
+	public Odontologo traerOdontologo(int id) {
+		return odontoJpa.findOdontologo(id);
+	}
+
+	public void editarOdontologo(Odontologo odon) {
+		try {
+			odontoJpa.edit(odon);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void borrarOdontologo(int id) {
+		odontoJpa.destroy(id);
+		
+	}
+	
 	
 }
