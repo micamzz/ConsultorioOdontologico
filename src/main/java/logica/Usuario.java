@@ -1,6 +1,8 @@
 package logica;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +15,8 @@ public class Usuario {
 	private int id_usuario;
 	private String nombreUsuario;
 	private String contrasenia;
-	private String rol;
+	@Enumerated(EnumType.STRING)
+	private Rol rol;
 	
 	
     // Constructores 
@@ -21,7 +24,7 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(int id_usuario, String nombreUsuario, String contrasenia, String rol) {
+	public Usuario(int id_usuario, String nombreUsuario, String contrasenia, Rol rol) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nombreUsuario = nombreUsuario;
@@ -54,11 +57,11 @@ public class Usuario {
 		this.contrasenia = contrasenia;
 	}
 
-	public String getRol() {
+	public Rol getRol() {
 		return rol;
 	}
 
-	public void setRol(String rol) {
+	public void setRol(Rol rol) {
 		this.rol = rol;
 	}
 

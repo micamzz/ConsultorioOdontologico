@@ -4,13 +4,16 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Odontologo extends Persona {
 
-//	private int id_odontologo;
+
+	@Enumerated(EnumType.STRING)
 	private Especialidad tipoEspecialidad;
 	@OneToOne
 	private Usuario unUsuario;
@@ -22,10 +25,6 @@ public class Odontologo extends Persona {
 	@OneToMany(mappedBy="odonto")
 	private List <Turno> listaTurnos;
 	
-	
-	public Odontologo() {
-		super();
-	}
 
 	public Odontologo(String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac,
 			Especialidad tipoEspecialidad, Usuario unUsuario, Horario unHorario, List<Turno> listaTurnos) {
@@ -37,15 +36,9 @@ public class Odontologo extends Persona {
 	}
 
 
+	public Odontologo() {
 
-//	public int getId_odontologo() {
-//		return id_odontologo;
-//	}
-//
-//
-//	public void setId_odontologo(int id_odontologo) {
-//		this.id_odontologo = id_odontologo;
-//	}
+	}
 
 
 	public Especialidad getTipoEspecialidad() {

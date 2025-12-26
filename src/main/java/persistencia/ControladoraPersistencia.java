@@ -3,13 +3,14 @@ package persistencia;
 import java.util.ArrayList;
 import java.util.List;
 
+import logica.Odontologo;
 import logica.Usuario;
 
 public class ControladoraPersistencia {
 
 	// Instancia de clases controladoras Jpa
 //	HorarioJpaController horaJpa = new HorarioJpaController();
-//    OdontologoJpaController odontoJpa = new OdontologoJpaController();
+    OdontologoJpaController odontoJpa = new OdontologoJpaController();
 //    PacienteJpaController pacJpa = new PacienteJpaController();
 //    PersonaJpaController persJpa = new PersonaJpaController();
 //    ResponsableJpaController respJpa = new ResponsableJpaController();
@@ -22,7 +23,7 @@ public class ControladoraPersistencia {
 		super();
 	}
 
-	// Usuario - Método para que se cree en la base de datos
+	// USUARIO - Método para que se cree en la base de datos
 	public void crearUsuario(Usuario usu) {
 		usuJpa.create(usu);	
 	}
@@ -48,6 +49,16 @@ public class ControladoraPersistencia {
 			e.printStackTrace();
 		}
 		
+	}
+
+	// ODONTOLOGO 
+	public void crearOdontologo(Odontologo odo) {
+		odontoJpa.create(odo);
+		
+	}
+
+	public List<Odontologo> getOdontologos() {
+		return odontoJpa.findOdontologoEntities();
 	}
 	
 }

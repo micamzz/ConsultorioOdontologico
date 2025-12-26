@@ -43,9 +43,7 @@ public class SvUsuarios extends HttpServlet {
     	misession.setAttribute("listaUsuarios", listaUsuarios);
     	
     	response.sendRedirect("verUsuarios.jsp");
-    	
-    	System.out.println("usuario :" + listaUsuarios.getFirst());
-    	
+    
 
     }
 
@@ -59,7 +57,9 @@ public class SvUsuarios extends HttpServlet {
     	
     	String nombreUsu = request.getParameter("nombreUsu");
     	String contra = request.getParameter("contrasenia");
-    	String rol = request.getParameter("rol");
+    	// DE ENUM A STRING
+    	String rolStr = request.getParameter("rol");
+    	Rol rol = Rol.valueOf(rolStr);
     	
         control.crearUsuario(nombreUsu, contra, rol);
     	

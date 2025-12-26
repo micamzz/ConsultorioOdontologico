@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="logica.Rol" %>
 <html lang="en">
 
 <!DOCTYPE html>
@@ -26,11 +27,20 @@
 
 
 		<div class="col-sm-6 mb-3">
-			<input type="text" class="form-control form-control-user"
-				id="rol" name="rol"  placeholder="Rol">
-		</div>
+    <label for="rol">Seleccione un Rol:</label>
+    <select class="form-control" name="rol" id="rol" 
+            style="border-radius: 10rem; height: 3.1rem; text-transform: capitalize;">
+        
+        <% for (Rol r : Rol.values()) { 
+            String nombreRol = r.toString().toLowerCase();
+        %>
+            <option value="<%= r.name() %>">
+                <%= nombreRol %>
+            </option>
+        <% } %>
+    </select>
+</div>
 
-		 <!-- Faltaria lo de Horario y usuarios -->
 	
 	</div>
 

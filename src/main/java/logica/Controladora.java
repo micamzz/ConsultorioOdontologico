@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import persistencia.ControladoraPersistencia;
@@ -15,18 +16,16 @@ public class Controladora {
 		
 	}
 	
-	// Metodos Usuarios
+	// USUARIOS - CRUD 
 	
-	public void crearUsuario( String nombreUsuario, String contrasenia, String rol) {
+	public void crearUsuario( String nombreUsuario, String contrasenia, Rol rol) {
 		
 		Usuario usu = new Usuario();
 		usu.setNombreUsuario(nombreUsuario);
 		usu.setContrasenia(contrasenia);
 		usu.setRol(rol);
-		controlPersis.crearUsuario(usu);
-		
+		controlPersis.crearUsuario(usu);	
 	}
-
 
 
 	public List<Usuario> getUsuarios() {
@@ -54,4 +53,46 @@ public class Controladora {
 		controlPersis.editarUsuario(usu);
 		
 	}
+
+	public Boolean validarIngreso(String usuario, String contrasenia) {
+
+		List <Usuario> listaUsuarios = controlPersis.getUsuarios();
+	
+	
+		
+		for (Usuario usu : listaUsuarios) {
+			if(usu.getNombreUsuario().equals(usuario) && (usu.getContrasenia().equals(contrasenia))) {
+				return true;
+				}
+			}
+           return false;
+	}
+
+	
+	// ODONTOLOGOS - CRUD 
+	public void crearOdontologo(String dni, String nombre, String apellido, String telefono, String direccion,
+			Date fechaNac, Especialidad especialidad) {
+		
+		Odontologo odo = new Odontologo();
+		
+		odo.setDni(dni);
+		odo.setNombre(nombre);
+		odo.setApellido(apellido);
+		odo.setTelefono(telefono);
+		odo.setDireccion(direccion);
+		odo.setFecha_nac(fechaNac);
+		odo.setTipoEspecialidad(especialidad);
+		
+	
+		controlPersis.crearOdontologo(odo);
+		
+	
+	}
+
+	public List<Odontologo> getOdontologos() {
+		
+		return controlPersis.getOdontologos();
+	}
+
+
 }
