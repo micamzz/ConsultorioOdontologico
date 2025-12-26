@@ -21,6 +21,9 @@
     
      <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    
+     <!-- Link css  -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 
 
 </head>
