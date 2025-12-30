@@ -1,7 +1,7 @@
 package logica;
 
+import java.io.Serializable; 
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Turno {
+public class Turno implements Serializable { 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,34 +22,28 @@ public class Turno {
 	private String hora_turno;
 	private String afeccion;
 	
-	/* Esta relacionado con el mapeo de la clase odontologo, relacion 1-N segun el nombre del objeto Odontologo
-	 El name es la FK en la BDD*/
 	@ManyToOne
 	@JoinColumn(name="fk_odontologo")
 	private Odontologo odonto;
 	
-	/* Esta relacionado con el mapeo de la clase paciente relacion 1-N */
 	@ManyToOne
 	@JoinColumn(name="fk_paciente")
 	private Paciente pacien;
 	
-	
-	// Constructores
 	public Turno() {
 	}
 
-
-	public Turno(int id_turno, Date fecha_turno, String hora_turno, String afeccion) {
-		super();
+    
+	public Turno(int id_turno, Date fecha_turno, String hora_turno, String afeccion, Odontologo odonto, Paciente pacien) {
 		this.id_turno = id_turno;
 		this.fecha_turno = fecha_turno;
 		this.hora_turno = hora_turno;
 		this.afeccion = afeccion;
+		this.odonto = odonto;
+		this.pacien = pacien;
 	}
 
 
-	// Getters y setters
-	
 	public int getId_turno() {
 		return id_turno;
 	}
@@ -89,9 +83,25 @@ public class Turno {
 		this.afeccion = afeccion;
 	}
 
-	
-	
-	
-	
+
+	public Odontologo getOdonto() {
+		return odonto;
+	}
+
+
+	public void setOdonto(Odontologo odonto) {
+		this.odonto = odonto;
+	}
+
+
+	public Paciente getPacien() {
+		return pacien;
+	}
+
+
+	public void setPacien(Paciente pacien) {
+		this.pacien = pacien;
+	}
+
 	
 }

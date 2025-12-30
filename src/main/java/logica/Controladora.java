@@ -108,5 +108,65 @@ public class Controladora {
 		
 	}
 
+	// PACIENTES
+	public List<Paciente> getPacientes() {
+		return controlPersis.getPacientes();
+	}
+
+	public void crearPaciente(String dni, String nombre, String apellido, String telefono, String direccion,
+			Date fechaNac, boolean tieneOS) {
+		
+		Paciente paciente = new Paciente();
+		
+		paciente.setDni(dni);
+		paciente.setNombre(nombre);
+		paciente.setApellido(apellido);
+		paciente.setTelefono(telefono);
+		paciente.setDireccion(direccion);
+		paciente.setFecha_nac(fechaNac);
+		paciente.setTiene_OS(tieneOS);
+		
+		controlPersis.crearPaciente(paciente);
+		
+	}
+
+	public Paciente traerPaciente(int id) {
+		return controlPersis.traerPaciente(id);
+	}
+
+	public void editarPaciente(Paciente pac) {
+		controlPersis.editarPaciente(pac);
+		
+	}
+
+	// TURNOS
+	public void crearTurno(Date fechaTurno, String horaTurno, String afeccion, int idOdonto, int idPaciente) {
+		
+		Turno turno = new Turno();
+	    turno.setFecha_turno(fechaTurno);
+	    turno.setHora_turno(horaTurno);
+	    turno.setAfeccion(afeccion);
+	    
+
+	    Odontologo odonto = controlPersis.traerOdontologo(idOdonto);
+	    Paciente pacien = controlPersis.traerPaciente(idPaciente);
+	    
+
+	    turno.setOdonto(odonto);
+	    turno.setPacien(pacien);
+	    
+	    controlPersis.crearTurno(turno);
+		
+	}
+
+	public List<Turno> getTurnos() {
+		return controlPersis.getTurnos();
+	}
+
+	public void borrarTurno(int idEliminar) {
+		controlPersis.borrarTurno(idEliminar);
+		
+	}
+
 
 }

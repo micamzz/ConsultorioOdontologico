@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import logica.Odontologo;
+import logica.Paciente;
+import logica.Turno;
 import logica.Usuario;
 
 public class ControladoraPersistencia {
 
 	// Instancia de clases controladoras Jpa
-//	HorarioJpaController horaJpa = new HorarioJpaController();
+	
     OdontologoJpaController odontoJpa = new OdontologoJpaController();
-//    PacienteJpaController pacJpa = new PacienteJpaController();
+    PacienteJpaController pacJpa = new PacienteJpaController();
 //    PersonaJpaController persJpa = new PersonaJpaController();
-//    ResponsableJpaController respJpa = new ResponsableJpaController();
-//    SecretarioJpaController secreJpa = new SecretarioJpaController();
-//    TurnoJpaController turnoJpa = new TurnoJpaController();
+  TurnoJpaController turnoJpa = new TurnoJpaController();
     UsuarioJpaController usuJpa = new UsuarioJpaController();
     
  
@@ -78,6 +78,51 @@ public class ControladoraPersistencia {
 		odontoJpa.destroy(id);
 		
 	}
+
+	// PACIENTES 
+	public List<Paciente> getPacientes() {
+		return pacJpa.findPacienteEntities();
+	}
+
+	public void crearPaciente(Paciente paciente) {
+		pacJpa.create(paciente);
+		
+	}
+
+	public Paciente traerPaciente(int id) {
+		return pacJpa.findPaciente(id);
+	}
+
+	public void editarPaciente(Paciente pac) {
+		try {
+			pacJpa.edit(pac);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	// TURNOS
+	public void crearTurno(Turno turno) {
+		try {
+			turnoJpa.create(turno);
+	    } catch (Exception e) {
+	        System.out.println("Error al persistir el turno: " + e.getMessage());
+	    }
+		
+	}
+
+	public List<Turno> getTurnos() {
+		
+		return turnoJpa.findTurnoEntities();
+	}
 	
+	public void borrarTurno(int idEliminar) {
+	    try {
+	        turnoJpa.destroy(idEliminar);
+	    } catch (Exception e) {
+	        System.out.println("No se pudo eliminar el turno: " + e.getMessage());
+	    }
+	}
 	
 }

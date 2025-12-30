@@ -70,6 +70,42 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+    
+    <!-- Modal boton eliminar  PACIENTE-->
+   <script>
+    function prepareDelete(id, nombre, apellido) {
+        document.getElementById('deleteId').value = id;
+        document.getElementById('pacienteNombre').innerText = nombre + " " + apellido;
+    }
+</script>
+
+<!-- Modal boton eliminar  ODONTOLOGO-->
+<script>
+    function prepareDeleteOdon(id, nombre, apellido) {
+        document.getElementById('deleteId').value = id;
+        document.getElementById('odontologoNombre').innerText =  nombre + " " + apellido;
+    }
+</script>
+
+<!-- Modal boton eliminar  USUARIO-->
+<script>
+    function prepareDeleteUsu(id, nombre) {
+        document.getElementById('deleteId').value = id;
+        document.getElementById('usuarioNombre').innerText = nombre;
+    }
+</script>
+
+<!-- Modal boton eliminar TURNOS -->
+<script>
+  
+    function prepareDeleteTurnos(id, pacApe, pacNom, oApe, oNom, fecha, hora) {
+        document.getElementById('deleteId').value = id;
+
+        document.getElementById('infoTurnoPaciente').innerText = (pacApe + " " + pacNom).toUpperCase();
+        document.getElementById('infoTurnoDr').innerText = ("DR. " + oApe + " " + oNom).toUpperCase();
+        document.getElementById('infoTurnoFecha').innerText = "EL DÍA " + fecha + " A LAS " + hora + " HS";
+    }
+</script>
 
 </body>
 </html>

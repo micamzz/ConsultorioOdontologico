@@ -66,7 +66,7 @@
                 <div class="row mt-4">
     <div class="col-md-12 text-center"> 
         <button type="submit" class="btn btn-primary shadow-sm px-5">
- Registrar Odontólogo
+ Registrar 
         </button>
     </div>
 </div>

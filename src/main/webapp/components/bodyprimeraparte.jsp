@@ -93,8 +93,8 @@
         aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones:</h6>
-            <a class="collapse-item" href="SvTurnos">Ver Turnos</a>
-            <a class="collapse-item" href="cancelarTurnos.jsp">Cancelar Turnos</a> 
+            <a class="collapse-item" href="SvTurnos">Reservar</a>
+            <a class="collapse-item" href="verTurnos.jsp">Ver turnos</a> 
         </div>
     </div>
 </li>
