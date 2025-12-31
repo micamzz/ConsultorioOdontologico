@@ -107,7 +107,7 @@ public class ControladoraPersistencia {
 		try {
 			turnoJpa.create(turno);
 	    } catch (Exception e) {
-	        System.out.println("Error al persistir el turno: " + e.getMessage());
+	    	e.printStackTrace();
 	    }
 		
 	}
@@ -121,7 +121,7 @@ public class ControladoraPersistencia {
 	    try {
 	        turnoJpa.destroy(idEliminar);
 	    } catch (Exception e) {
-	        System.out.println("No se pudo eliminar el turno: " + e.getMessage());
+	    	e.printStackTrace();
 	    }
 	}
 	

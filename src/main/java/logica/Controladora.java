@@ -18,13 +18,17 @@ public class Controladora {
 	
 	// USUARIOS - CRUD 
 	
-	public void crearUsuario( String nombreUsuario, String contrasenia, Rol rol) {
-		
-		Usuario usu = new Usuario();
-		usu.setNombreUsuario(nombreUsuario);
-		usu.setContrasenia(contrasenia);
-		usu.setRol(rol);
-		controlPersis.crearUsuario(usu);	
+	public void crearUsuario(String nombreUsuario, String contrasenia, Rol rol) {
+	    
+	    Usuario usu = new Usuario();
+	    usu.setNombreUsuario(nombreUsuario);
+	    
+	    /* Encriptar contraseña para enviar a la BDD */
+	    String contraHash = Encriptador.encriptarContrasenia(contrasenia); 
+	    usu.setContrasenia(contraHash);
+	    
+	    usu.setRol(rol);
+	    controlPersis.crearUsuario(usu);	
 	}
 
 
@@ -55,17 +59,14 @@ public class Controladora {
 	}
 
 	public Boolean validarIngreso(String usuario, String contrasenia) {
+	    List<Usuario> listaUsuarios = controlPersis.getUsuarios();
 
-		List <Usuario> listaUsuarios = controlPersis.getUsuarios();
-	
-	
-		
-		for (Usuario usu : listaUsuarios) {
-			if(usu.getNombreUsuario().equals(usuario) && (usu.getContrasenia().equals(contrasenia))) {
-				return true;
-				}
-			}
-           return false;
+	    for (Usuario usu : listaUsuarios) {
+	        if (usu.getNombreUsuario().equals(usuario)) {
+	            return Encriptador.verificarContrasenia(contrasenia, usu.getContrasenia());
+	        }
+	    }
+	    return false;
 	}
 
 	
@@ -142,22 +143,23 @@ public class Controladora {
 	// TURNOS
 	public void crearTurno(Date fechaTurno, String horaTurno, String afeccion, int idOdonto, int idPaciente) {
 		
-		Turno turno = new Turno();
-	    turno.setFecha_turno(fechaTurno);
-	    turno.setHora_turno(horaTurno);
-	    turno.setAfeccion(afeccion);
-	    
-
-	    Odontologo odonto = controlPersis.traerOdontologo(idOdonto);
-	    Paciente pacien = controlPersis.traerPaciente(idPaciente);
-	    
-
-	    turno.setOdonto(odonto);
-	    turno.setPacien(pacien);
-	    
-	    controlPersis.crearTurno(turno);
-		
+		if (validarTurno(fechaTurno, horaTurno, idOdonto)) {
+	        Turno turno = new Turno();
+	        turno.setFecha_turno(fechaTurno);
+	        turno.setHora_turno(horaTurno);
+	        turno.setAfeccion(afeccion);
+	        
+	        Odontologo odonto = controlPersis.traerOdontologo(idOdonto);
+	        Paciente pacien = controlPersis.traerPaciente(idPaciente);
+	        
+	        turno.setOdonto(odonto);
+	        turno.setPacien(pacien);
+	        
+	        controlPersis.crearTurno(turno);
+	    }
 	}
+		
+	
 
 	public List<Turno> getTurnos() {
 		return controlPersis.getTurnos();
@@ -168,5 +170,20 @@ public class Controladora {
 		
 	}
 
+	// VALIDAR QUE EL ODONTOLOGO NO TENGA UN TURNO ESE DIA Y HORARIO.
+	public boolean validarTurno(Date fecha, String hora, int idOdonto) {
+	    List<Turno> listaTurnos = this.getTurnos();
+	    
+	    for (Turno tur : listaTurnos) {
+	      
+	        if (tur.getFecha_turno().equals(fecha) && 
+	            tur.getHora_turno().equals(hora) && 
+	            tur.getOdonto().getId() == idOdonto) {
+	            
+	            return false; 
+	        }
+	    }
+	    return true; 
+	}
 
 }

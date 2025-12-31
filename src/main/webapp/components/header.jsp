@@ -23,7 +23,7 @@
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     
      <!-- Link css  -->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css?v=2" rel="stylesheet">
 
 
 </head>
