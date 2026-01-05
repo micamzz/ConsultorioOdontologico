@@ -6,12 +6,22 @@
 
 <div class="container-fluid">
     <h1 class="h3 mb-4 text-gray-800">Alta de Odontólogos</h1>
+    
+      <% if (request.getParameter("status") != null && request.getParameter("status").equals("success")) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        El odontólogo fue registrado correctamente.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Datos del Profesional</h6>
         </div>
         <div class="card-body">
+  
             <form class="user" action="SvOdontologos" method="POST">
 
                 <div class="row">

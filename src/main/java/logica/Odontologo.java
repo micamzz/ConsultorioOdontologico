@@ -17,8 +17,7 @@ public class Odontologo extends Persona {
 	private Especialidad tipoEspecialidad;
 	@OneToOne
 	private Usuario unUsuario;
-	@OneToOne
-	private Horario unHorario;
+
 	
 	//Relacion 1 a N
 	// el MappedBy = es referencia lógica para poder acceder a los turnos desde el objeto odontólogo en Java.
@@ -27,15 +26,19 @@ public class Odontologo extends Persona {
 	
 
 	public Odontologo(String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac,
-			Especialidad tipoEspecialidad, Usuario unUsuario, Horario unHorario, List<Turno> listaTurnos) {
+			Especialidad tipoEspecialidad,List<Turno> listaTurnos) {
 		super(dni, nombre, apellido, telefono, direccion, fecha_nac);
 		this.tipoEspecialidad = tipoEspecialidad;
-		this.unUsuario = unUsuario;
-		this.unHorario = unHorario;
 		this.listaTurnos = listaTurnos;
 	}
 
-
+	public Odontologo(String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac,
+			Especialidad tipoEspecialidad) {
+		super(dni, nombre, apellido, telefono, direccion, fecha_nac);
+		this.tipoEspecialidad = tipoEspecialidad;
+		
+	}
+	
 	public Odontologo() {
 
 	}
@@ -60,15 +63,6 @@ public class Odontologo extends Persona {
 		this.unUsuario = unUsuario;
 	}
 
-
-	public Horario getUnHorario() {
-		return unHorario;
-	}
-
-
-	public void setUnHorario(Horario unHorario) {
-		this.unHorario = unHorario;
-	}
 
 
 	public List<Turno> getListaTurnos() {

@@ -2,13 +2,14 @@
 	pageEncoding="UTF-8"%>
 
 <%
-    /* Verificación de Inicio Sesion */
+    /* Verificación de Inicio Sesion*/
     HttpSession misession = request.getSession(false); 
     String usuarioLogueado = (misession != null) ? (String) misession.getAttribute("usuario") : null;
 
     if (usuarioLogueado == null) {
         response.sendRedirect("login.jsp");
     }
+    
 %>
 
 <body id="page-top">

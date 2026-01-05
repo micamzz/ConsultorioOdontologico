@@ -8,6 +8,16 @@
     <h1 class="h3 mb-4 text-gray-800">Alta de Usuarios</h1>
      <p class="mb-4 text-gray-600">En este apartado, podrá dar de alta a nuevos usuarios para que puedan acceder y manipular las diferentes funciones del sistema según su rol asignado.</p>
 
+    <% if (request.getParameter("status") != null && request.getParameter("status").equals("success")) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        El usuario fue registrado correctamente.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Credenciales del Sistema</h6>

@@ -63,7 +63,7 @@ public class SvUsuarios extends HttpServlet {
     	
         control.crearUsuario(nombreUsu, contra, rol);
     	
-    	response.sendRedirect("index.jsp");
+        response.sendRedirect("altaUsuarios.jsp?status=success");
     }
 
     @Override

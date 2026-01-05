@@ -104,9 +104,14 @@ public class Controladora {
 		
 	}
 
-	public void borrarOdontologo(int id) {
-		controlPersis.borrarOdontologo(id);
-		
+
+	public boolean borrarOdontologo(int id) {
+	    try {
+	    	controlPersis.borrarOdontologo(id);
+	        return true; 
+	    } catch (Exception e) {
+	        return false;
+	    }
 	}
 
 	// PACIENTES
@@ -131,6 +136,15 @@ public class Controladora {
 		
 	}
 
+
+	public boolean borrarPaciente(int id) {
+	    try {
+	        controlPersis.borrarPaciente(id);
+	        return true; 
+	    } catch (Exception e) {
+	        return false;
+	    }
+	}
 	public Paciente traerPaciente(int id) {
 		return controlPersis.traerPaciente(id);
 	}
@@ -142,8 +156,9 @@ public class Controladora {
 
 	// TURNOS
 	public void crearTurno(Date fechaTurno, String horaTurno, String afeccion, int idOdonto, int idPaciente) {
-		
-		if (validarTurno(fechaTurno, horaTurno, idOdonto)) {
+	    
+	    
+	    if (validarTurnoDetallado(fechaTurno, horaTurno, idOdonto, idPaciente).equals("ok")) {
 	        Turno turno = new Turno();
 	        turno.setFecha_turno(fechaTurno);
 	        turno.setHora_turno(horaTurno);
@@ -170,20 +185,25 @@ public class Controladora {
 		
 	}
 
-	// VALIDAR QUE EL ODONTOLOGO NO TENGA UN TURNO ESE DIA Y HORARIO.
-	public boolean validarTurno(Date fecha, String hora, int idOdonto) {
-	    List<Turno> listaTurnos = this.getTurnos();
+
+	public String validarTurnoDetallado(Date fecha, String hora, int idOdonto, int idPac) {
+	    List<Turno> listaTurnos = controlPersis.getTurnos();
 	    
 	    for (Turno tur : listaTurnos) {
-	      
-	        if (tur.getFecha_turno().equals(fecha) && 
-	            tur.getHora_turno().equals(hora) && 
-	            tur.getOdonto().getId() == idOdonto) {
+	        if (tur.getFecha_turno().equals(fecha) && tur.getHora_turno().equals(hora)) {
 	            
-	            return false; 
+	          
+	            if (tur.getOdonto().getId() == idOdonto) {
+	                return "error_odonto"; 
+	            }
+	            
+	           
+	            if (tur.getPacien().getId() == idPac) {
+	                return "error_paciente";
+	            }
 	        }
 	    }
-	    return true; 
+	    return "ok"; 
 	}
 
 }

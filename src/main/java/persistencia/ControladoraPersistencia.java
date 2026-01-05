@@ -88,6 +88,11 @@ public class ControladoraPersistencia {
 		pacJpa.create(paciente);
 		
 	}
+	
+	public void borrarPaciente(int id_eliminar) {
+		pacJpa.destroy(id_eliminar);
+		
+	}
 
 	public Paciente traerPaciente(int id) {
 		return pacJpa.findPaciente(id);
@@ -124,5 +129,7 @@ public class ControladoraPersistencia {
 	    	e.printStackTrace();
 	    }
 	}
+
+	
 	
 }
