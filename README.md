@@ -2,10 +2,10 @@
 
 Proyecto pesonal desarrollado con el objetivo de aplicar y consolidar conocimientos en **desarrollo web con Java**, simulando un escenario real de gestión administrativa para un consultorio odontológico.
 
-> 📌 Este sistema **no es un producto comercial**. Fue realizado únicamente con fines educativos y de práctica personal.
+>  Este sistema **no es un producto comercial**. Fue realizado únicamente con fines educativos y de práctica personal.
 
 ---
-## 🚀 Descripción general
+##  Descripción general
 La aplicación permite administrar de forma integral:
 - Odontólogos
 - Pacientes
@@ -15,7 +15,7 @@ La aplicación permite administrar de forma integral:
 Se implementa una **arquitectura multicapa**, control de sesiones, validaciones de negocio y seguridad básica, buscando buenas prácticas de diseño y mantenimiento del código.
 
 ---
-## ✨ Funcionalidades principales
+##  Funcionalidades principales
 
 ### 🔹 Gestión Integral (CRUD)
 
@@ -44,7 +44,7 @@ Se implementa una **arquitectura multicapa**, control de sesiones, validaciones 
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 ### Backend
 
@@ -75,7 +75,7 @@ Se implementa una **arquitectura multicapa**, control de sesiones, validaciones 
 
 ---
 
-## 🧱 Estructura del proyecto
+##  Estructura del proyecto
 
 ConsultorioOdontologico
 ├── src/
@@ -98,7 +98,7 @@ ConsultorioOdontologico
 
 ---
 
-## 🔑 Primeros Pasos (Acceso)
+##  Primeros Pasos (Acceso)
 
 Para que el sistema sea funcional tras la primera instalación, es necesario:
 
@@ -107,7 +107,7 @@ Para que el sistema sea funcional tras la primera instalación, es necesario:
 
 ---
 
-## ▶️ Ejecución
+##  Ejecución
 
 1. Clonar el repositorio
 2. Importar el proyecto como **Maven Project**
@@ -118,7 +118,7 @@ Para que el sistema sea funcional tras la primera instalación, es necesario:
 
 ---
 
-## 📚 Objetivos de aprendizaje
+##  Objetivos de aprendizaje
 
 - Aplicar arquitectura en capas
 - Implementar validaciones de negocio
@@ -129,6 +129,6 @@ Para que el sistema sea funcional tras la primera instalación, es necesario:
 
 ---
 
-## 👩‍💻 Autor
+##  Autor
 
 Proyecto desarrollado por **Mica M.** como práctica personal en desarrollo web con Java.
