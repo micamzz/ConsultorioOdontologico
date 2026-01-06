@@ -79,14 +79,12 @@ Se implementa una **arquitectura multicapa**, control de sesiones, validaciones 
 
 ConsultorioOdontologico
 ├── src/
-│ ├── logica/ # Entidades y controladores de negocio
-│ ├── persistencia/ # JPA Controllers y configuración de DB
-│ └── servlets/ # Manejo de peticiones HTTP
+│   ├── logica/        # Entidades y controladores de negocio
+│   ├── persistencia/  # JPA Controllers y configuración de DB
+│   └── servlets/      # Manejo de peticiones HTTP
 └── WebContent/
-├── components/ # Fragmentos JSP reutilizables
-└── *.jsp # Vistas de la aplicación.
-
----
+    ├── components/    # Fragmentos JSP reutilizables (header, footer)
+    └── *.jsp          # Vistas de la aplicación
 
 ## ⚙️ Requisitos para ejecutar el proyecto
 
@@ -128,7 +126,3 @@ Para que el sistema sea funcional tras la primera instalación, es necesario:
 - Trabajar con seguridad básica en aplicaciones web
 
 ---
-
-##  Autor
-
-Proyecto desarrollado por **Mica M.** como práctica personal en desarrollo web con Java.
