@@ -75,17 +75,20 @@ Se implementa una **arquitectura multicapa**, control de sesiones, validaciones 
 
 ---
 
-##  Estructura del proyecto
+## Estructura del proyecto
 
-ConsultorioOdontologico
-├── src/
-│ ├── logica/
-│ ├── persistencia/
-│ └── servlets/
-└── WebContent/
-├── components/
-└── *.jsp
+```
+ConsultorioOdontologico 
+├── src/ 
+│   ├── logica/        # Entidades y controladores de negocio 
+│   ├── persistencia/  # JPA Controllers y configuración de DB 
+│   └── servlets/      # Manejo de peticiones HTTP 
+└── WebContent/ 
+    ├── components/    # Fragmentos JSP reutilizables 
+    └── *.jsp          # Vistas de la aplicación
 
+```
+---
 ## ⚙️ Requisitos para ejecutar el proyecto
 
 - Java JDK 8 o superior
