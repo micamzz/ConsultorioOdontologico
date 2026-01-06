@@ -79,12 +79,12 @@ Se implementa una **arquitectura multicapa**, control de sesiones, validaciones 
 
 ConsultorioOdontologico
 ├── src/
-│   ├── logica/        # Entidades y controladores de negocio
-│   ├── persistencia/  # JPA Controllers y configuración de DB
-│   └── servlets/      # Manejo de peticiones HTTP
+│ ├── logica/
+│ ├── persistencia/
+│ └── servlets/
 └── WebContent/
-    ├── components/    # Fragmentos JSP reutilizables (header, footer)
-    └── *.jsp          # Vistas de la aplicación
+├── components/
+└── *.jsp
 
 ## ⚙️ Requisitos para ejecutar el proyecto
 
